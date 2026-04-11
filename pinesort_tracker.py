@@ -56,7 +56,7 @@ OUTPUT_DIR = "/home/manish/Mee/codes/vayudh_task/main/output/pinesort"
 # Processing mode: Set to True for video, False for image directory
 PROCESS_VIDEO = True  # True: process video file, False: process image directory
 
-# PineSORT parameters (optimized from main.py)
+# PineSORT parameters 
 DET_THRESH = 0.45
 MIN_DET_THRESH = 0.30
 MAX_AGE = 5
@@ -142,8 +142,6 @@ if __name__ == "__main__":
         # Process image directory
         image_files = sorted([os.path.join(IMAGE_DIR, f) for f in os.listdir(IMAGE_DIR) 
                               if f.endswith(('png', 'jpg', 'jpeg'))])
-        if not image_files:
-            raise FileNotFoundError(f"No images found in: {IMAGE_DIR}")
         
         # Read first image to get dimensions
         sample_img = cv2.imread(image_files[0])
