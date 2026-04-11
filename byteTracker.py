@@ -55,13 +55,11 @@ ALPHA = 0.1  # Transparency for bounding boxes
 
 
 def create_output_directory(output_path):
-    """Create a directory if it doesn't exist."""
-    os.makedirs(output_path, exist_ok=True)
+     os.makedirs(output_path, exist_ok=True)
     print(f"Directory created at: {output_path}")
 
 
 def draw_trail(frame, trail_points, color, trail_thick=2):
-    """Draw a fading polyline trail behind an object."""
     pts = list(trail_points)
     for i in range(1, len(pts)):
         alpha = i / len(pts)
@@ -168,26 +166,16 @@ if __name__ == "__main__":
         prev_time = now
 
         # Run YOLO with built-in ByteTrack
-        if use_custom_tracker:
-            results = model.track(
-                frame,
-                tracker=BYTETRACK_CONFIG,
-                persist=True,
-                conf=CONF,
-                iou=IOU,
-                verbose=False,
-                classes=CLASSES
-            )
-        else:
-            # Use default tracking (no custom config)
-            results = model.track(
-                frame,
-                persist=True,
-                conf=CONF,
-                iou=IOU,
-                verbose=False,
-                classes=CLASSES
-            )
+        #if use_custom_tracker:
+        results = model.track(
+            frame,
+            tracker=BYTETRACK_CONFIG,
+            persist=True,
+            conf=CONF,
+            iou=IOU,
+            verbose=False,
+            classes=CLASSES
+        )
         
         # Extract tracking results
         if results[0].boxes is not None and results[0].boxes.id is not None:
