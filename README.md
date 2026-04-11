@@ -24,10 +24,10 @@ Input Video → Gamma Correction → YOLOv8n Detection → PineSORT Tracking →
 **Training Results:**
 | Metric | Value |
 |--------|-------|
-| mAP50 | 31.1% |
-| Precision | 75% |
-| Recall | 70% |
-| Model Size | ~6 MB |
+| mAP50 | 52% |
+| Precision | 66% |
+| Recall | 46% |
+| Model Size | ~7 MB |
 
 > *Training plots and confusion matrix are available in the `/training_results` folder*
 
