@@ -82,9 +82,24 @@ python3 pinesortTracker.py
 
 PS : you will have to change path in the file itself, both of the scripts are commented enough to give you understanding to where the change the file path.  
 
+# Performance Metrics
+| Platform | Res |
+|--------|-------|
+| Laptop (gtx1650) 640 res, .pt file | 20-50 fps |
+| Laptop (gtx1650) 416 res, .pt file | 30-70 fps |
+| Jetson nano 640 res -engine file | 19-25 fps |
+
 # Jetson Nano
 For jetson nano, i used docker version of yolov8.
 - here i converted .pt file to tensorrt file (.engine) for better performance, on video - with tracker i am getting 45ms per frame. 
 expected performance : 20-30 FPS with FP16 - 640 resolution.
 
+# Observation 
+During evaluation, it was observed that several sequences contain significantly fewer annotated objects compared to the actual number of visible objects in the scene. For example, frames with approximately 15 visible persons may only include 5 labeled ground-truth instances.
 
+As a result, detections corresponding to unannotated but visually valid objects are treated as False Positives by the evaluation framework (py-motmetrics). This artificially inflates the FP count and lowers MOTA, despite the detector correctly identifying real objects. It was observed that PineSort had fewer id switches and framentation in comparison to bytetrack.
+I am still working out on how to resolve this issue. 
+
+# Result
+Some sample results are uploaded in result directory. 
+Rest will be uploaded to gdrive. 
