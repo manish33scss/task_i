@@ -77,7 +77,8 @@ IDE : Spyder
 - Both of them are executable by simply using
 ```bash
 python3 byteTracker.py
-python3 pinesortTracker.py ```
+python3 pinesortTracker.py
+```
 
 PS : you will have to change path in the file itself, both of the scripts are commented enough to give you understanding to where the change the file path.  
 
