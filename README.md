@@ -76,7 +76,7 @@ IDE : Spyder
 - After cloning and installing necessary packages.
 - I have created files 1) Bytetracker 2) pinesortTracker
 - Both of them are executable by simply using
-```bash
+
 python3 byteTracker.py
 python3 pinesortTracker.py
 
