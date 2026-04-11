@@ -92,7 +92,7 @@ PS : you will have to change path in the file itself, both of the scripts are co
 # Jetson Nano
 For jetson nano, i used docker version of yolov8.
 - here i converted .pt file to tensorrt file (.engine) for better performance, on video - with tracker i am getting 45ms per frame. 
-expected performance : 20-30 FPS with FP16 - 640 resolution.
+expected performance : 20-25 FPS with FP16 - 640 resolution.
 
 # Observation 
 During evaluation, it was observed that several sequences contain significantly fewer annotated objects compared to the actual number of visible objects in the scene. For example, frames with approximately 15 visible persons may only include 5 labeled ground-truth instances.
