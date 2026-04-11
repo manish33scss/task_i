@@ -82,7 +82,7 @@ python3 pinesortTracker.py
 
 PS : you will have to change path in the file itself, both of the scripts are commented enough to give you understanding to where the change the file path.  
 
-#Jetson Nano
+# Jetson Nano
 For jetson nano, i used docker version of yolov8.
 - here i converted .pt file to tensorrt file (.engine) for better performance, on video - with tracker i am getting 45ms per frame. 
 expected performance : 20-30 FPS with FP16 - 640 resolution.
