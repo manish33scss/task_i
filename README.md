@@ -103,3 +103,4 @@ I am still working out on how to resolve this issue.
 # Result
 Some sample results are uploaded in result directory. 
 Rest will be uploaded to gdrive. 
+Note : Files for jetson will be uploaded soon.
