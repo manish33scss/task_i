@@ -59,7 +59,6 @@ Input Video → Gamma Correction → YOLOv8n Detection → PineSORT Tracking →
 
 ### Installation
 
-```bash
 # Clone repository
 git clone https://github.com/manish33scss/task_i.git
 cd task_i
