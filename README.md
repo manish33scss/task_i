@@ -67,9 +67,9 @@ cd task_i
 pip install -r requirements.txt
 
 # System Configuration
-Training : i5 9th gen, nvidia 1650 gtx - Laptop
-Testing : same laptop, jetson nano
-IDE : Spyder
+- Training : i5 9th gen, nvidia 1650 gtx - Laptop
+- Testing : same laptop, jetson nano
+- IDE : Spyder
 
 # Execution
 - After cloning and installing necessary packages.
