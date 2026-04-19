@@ -91,8 +91,34 @@ PS : you will have to change path in the file itself, both of the scripts are co
 
 # Jetson Nano
 For jetson nano, i used docker version of yolov8.
-- here i converted .pt file to tensorrt file (.engine) for better performance, on video - with tracker i am getting 45ms per frame. 
-expected performance : 20-25 FPS with FP16 - 640 resolution.
+To run tracking scripts on the Jetson Nano, we use the official Ultralytics Docker container optimized for JetPack 4 (ultralytics/ultralytics:latest-jetson-jetpack4). The container is launched with NVIDIA runtime and two volume mounts: one for the project workspace (/home/manish/PR_25 → /workspace/PR_25) and another for output results (/home/manish/yolo_output → /ultralytics/runs). Inside the container, essential system dependencies (python3-dev, build-essential, liblapack-dev, libblas-dev) are installed via apt-get to enable compilation of scientific computing packages. The lap library is installed first, followed by downgrading setuptools to a version below 66 to resolve compatibility issues. Finally, pygmtools==0.3.8 is installed—an older version that works reliably with the container's environment. With these dependencies in place, the tracking scripts (2ptrack.py for PineSORT and byte_2_2.py for ByteTrack) can be executed directly, producing output videos and MOT-format tracking results in the mounted output directory.
+```bash
+installs : #  
+sudo apt-get update
+sudo apt-get install -y python3-dev build-essential liblapack-dev libblas-dev
+
+ 
+pip3 install lap
+
+inside docker install : 
+apt-get update && apt-get install -y \
+    python3-dev \
+    build-essential \
+    liblapack-dev \
+    libblas-dev \
+    && pip3 install lap
+
+# Downgrade setuptools to a compatible version
+pip3 install "setuptools<66"
+
+# Then retry pygmtools with an older compatible version
+pip3 install "pygmtools==0.3.8"
+
+run : sudo docker run --runtime=nvidia -it \
+  -v /home/manish/PR_25:/workspace/PR_25 \
+  -v /home/manish/yolo_output:/ultralytics/runs \
+  ultralytics/ultralytics:latest-jetson-jetpack4
+```
 
 # Observation 
 During evaluation, it was observed that several sequences contain significantly fewer annotated objects compared to the actual number of visible objects in the scene. For example, frames with approximately 15 visible persons may only include 5 labeled ground-truth instances.
