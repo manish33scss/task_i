@@ -128,5 +128,10 @@ I am still working out on how to resolve this issue.
 
 # Result
 Some sample results are uploaded in result directory. 
-Rest will be uploaded to gdrive. 
-Note : Files for jetson will be uploaded soon.
+Result from jetson nano :
+Fps with ByteTrack+yolov8 @ 640 resolution : 8-10 fps
+Fps with PineSort+yolov8 @ 640 resolution : 5-7 fps
+
+
+
+
